@@ -82,4 +82,3 @@ ANTES DE COMEÇAR A DESENVOLVER:
 - git merge origin/master -> Fazer o merge da master na sua branch
 - git push -u nome-da-branch -> Primeiro push de uma nova branch
 - git push -> Segundo push em diante
-
