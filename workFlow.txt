@@ -82,3 +82,4 @@ ANTES DE COMEÇAR A DESENVOLVER:
 - git fetch origin   -> Buscar as últimas atualizações da master
 - git merge origin/master  -> Fazer o merge da master na sua branch
 - git push   -> Enviar o commit para o repositório remoto
+
