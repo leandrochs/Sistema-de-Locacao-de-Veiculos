@@ -4,6 +4,9 @@ public class Main {
         // Atualizações master
         // Rode o programa
         System.out.println("Hello World!! Eu estou funcionando!");
+        System.out.println("Hello World!! Eu estou funcionando! ");
+        System.out.println("Hello World!! Eu estou funcionando!");
+        System.out.println("Hello World!! Eu estou funcionando! ");
 
     }
 }
