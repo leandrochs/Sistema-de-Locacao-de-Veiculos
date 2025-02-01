@@ -1,0 +1,84 @@
+===================================
+ INSTRUÇÕES PARA DESENVOLVIMENTO DO PROJETO
+===================================
+
+ANTES DE COMEÇAR A DESENVOLVER:
+
+1. Clone o repositório:
+   git clone https://github.com/leandrochs/Sistema-de-Locacao-de-Veiculos.git
+
+2. Entre na pasta do repositório clonado, se já não estiver nela:
+   cd .\Sistema-de-Locacao-de-Veiculos\
+
+3. Crie uma branch a partir da branch master:
+   - Verifique em qual branch você está:
+     git branch
+   - Se não estiver na master, mude para ela:
+     git checkout master
+   - Agora, crie uma branch com seu nome:
+     git checkout -b seu-nome
+
+================================
+ FAZENDO E ADICIONANDO MUDANÇAS
+================================
+
+1. Verifique as mudanças não adicionadas ao stage:
+   git status (arquivos em vermelho ainda não foram adicionados)
+
+2. Adicione as mudanças ao stage:
+   git add . (adiciona todas as mudanças)
+   git status (arquivos agora aparecem em verde)
+
+3. Faça o commit das mudanças:
+   git commit -m "Escreva seu comentario sem caracteres especiais"
+
+4. Verifique se não há mais mudanças pendentes:
+   git status (deve aparecer "nothing to commit")
+
+5. Envie a branch para o repositório remoto:
+   git push -u origin seu-nome
+
+6. Observe o link para pull request que vai aparecer na sua tela.
+
+===================================
+ CRIANDO UM NOVO PULL REQUEST (PR)
+===================================
+
+1. Acesse a página de Pull Requests no GitHub. O link aparece no terminal após realizar o push.
+2. Clique em "New pull request", se não for direto para a aba de PR.
+3. Observe se a branch está correta. (base: master  <-- compare: sua-branch)
+4. Adicione uma descrição e um título.
+5. Clique em "Create pull request".
+6. Verifique se o PR foi criado com sucesso.
+7. Avise o grupo para aprovar seu código.
+
+=============================
+ DURANTE O DESENVOLVIMENTO
+=============================
+
+1. Faça commits sempre que alterar o código.
+2. Mantenha sua branch atualizada com a master.
+
+================================================================================
+ BUSCANDO ATUALIZAÇÕES DA MASTER NA SUA BRANCH ANTES DE SUBIR SUAS ATUALIZAÇÕES
+================================================================================
+
+1. Buscar as últimas atualizações da master:
+   git fetch origin
+
+2. Fazer o merge da master na sua branch:
+   git merge origin/master
+
+=============================
+ COMANDOS MAIS UTILIZADOS
+=============================
+
+- git status  -> Verificar o status dos arquivos
+- git add      -> Adicionar arquivos ao stage
+- git commit   -> Criar um commit
+- git push -u nome-da-branch  -> Primeiro push de uma nova branch
+
+  Antes de subir suas atualizações:
+- git fetch origin   -> Buscar as últimas atualizações da master
+- git merge origin/master  -> Fazer o merge da master na sua branch
+- git push   -> Enviar o commit para o repositório remoto
