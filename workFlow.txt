@@ -1,6 +1,6 @@
-===================================
+============================================
  INSTRUÇÕES PARA DESENVOLVIMENTO DO PROJETO
-===================================
+============================================
 
 ANTES DE COMEÇAR A DESENVOLVER:
 
@@ -69,17 +69,16 @@ ANTES DE COMEÇAR A DESENVOLVER:
 2. Fazer o merge da master na sua branch:
    git merge origin/master
 
-=============================
+===========================
  COMANDOS MAIS UTILIZADOS
-=============================
+===========================
 
 - git status  -> Verificar o status dos arquivos
 - git add      -> Adicionar arquivos ao stage
 - git commit   -> Criar um commit
-- git push -u nome-da-branch  -> Primeiro push de uma nova branch
 
   Antes de subir suas atualizações:
 - git fetch origin   -> Buscar as últimas atualizações da master
 - git merge origin/master  -> Fazer o merge da master na sua branch
-- git push   -> Enviar o commit para o repositório remoto
-
+- git push -u nome-da-branch  -> Primeiro push de uma nova branch
+- git push   -> Segundo commit em diante
