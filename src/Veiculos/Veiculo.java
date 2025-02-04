@@ -1,3 +1,5 @@
+package Veiculos;
+
 abstract class Veiculo {
 
     String modelo;
