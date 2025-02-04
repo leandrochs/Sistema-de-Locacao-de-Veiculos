@@ -57,4 +57,14 @@ public class Cliente {
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "name='" + name + '\'' +
+                ", idNumber='" + idNumber + '\'' +
+                ", adress='" + adress + '\'' +
+                ", telephoneNumber='" + telephoneNumber + '\'' +
+                '}';
+    }
 }

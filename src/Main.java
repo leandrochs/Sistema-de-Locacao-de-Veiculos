@@ -1,8 +1,11 @@
+import BancoDeDados.Dados;
+
 public class Main {
     public static void main(String[] args) {
 
-CallMenu.menu();
+        Dados.gerarClientesDeExemplo();
 
-    //Linha da Stefanie Castro
+        CallMenu.menu();
+
     }
 }
