@@ -1,4 +1,6 @@
+import BancoDeDados.BancoDeDados;
 import Clientes.Cliente;
+import Clientes.CriarCliente;
 
 import java.util.Scanner;
 
@@ -13,7 +15,8 @@ public class CallMenu {
             System.out.println("3) Cadastrar veículo");
             System.out.println("4) Listar veículos");
             System.out.println("5) Veículo de luxo (locação)");
-            System.out.println("6) Sair");
+            System.out.println("6) Listar clientes");
+            System.out.println("7) Sair");
             System.out.print("Digite a opção desejada: ");
             option = scanner.nextInt();
             //Validar para casos de texto não quebrar o código
@@ -24,6 +27,7 @@ public class CallMenu {
                     break;
                 case 2:
                     System.out.println("Opção 2: Cadastrar cliente");
+                    CriarCliente.cadastrarCliente();
                     break;
                 case 3:
                     System.out.println("Opção 3: Cadastrar veículo");
@@ -35,13 +39,17 @@ public class CallMenu {
                     System.out.println("Opção 5: Veículo de luxo (locação)");
                     break;
                 case 6:
+                    System.out.println("Listar clientes");
+                    BancoDeDados.imprimirClientes();
+                    break;
+                case 7:
                     System.out.println("Sair");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-        } while (option != 6);
+        } while (option != 7);
 
         scanner.close();
     }
