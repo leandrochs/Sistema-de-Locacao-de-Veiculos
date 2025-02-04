@@ -1,13 +1,12 @@
 package Clientes;
+import BancoDeDados.BancoDeDados;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CriarCliente {
-    private void cadastrarCliente() {
-        List<Cliente> clientes;
-
-        clientes = new ArrayList<>();
+    public static void cadastrarCliente() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Digite o nome do cliente: ");
@@ -22,9 +21,10 @@ public class CriarCliente {
         System.out.print("Digite o CPF/CNPJ do cliente: ");
         String idNumber = sc.nextLine();
 
-        Cliente cliente = new Cliente(name, idNumber, adress, telephoneNumber);
-        clientes.add(cliente);
+        Cliente novoCliente = new Cliente(name, idNumber, adress, telephoneNumber);
+        BancoDeDados.adicionaCliente(novoCliente);
 
         System.out.println("Cliente cadastrado com sucesso: " + name);
+        BancoDeDados.getUltimoCliente();
     }
 }
