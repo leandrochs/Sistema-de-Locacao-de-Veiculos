@@ -62,7 +62,7 @@ public class CriarVeiculo {
 
         switch (tipoVeiculo) {
             case 1:
-                veiculo = new Veiculo.CarroComum(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 2:
                 veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade);

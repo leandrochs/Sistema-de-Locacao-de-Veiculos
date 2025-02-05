@@ -6,6 +6,11 @@ public class SUV extends Veiculo implements ServicosDeLuxo{
         }
 
     @Override
+    public void informacoesDoVeiculo() {
+
+    }
+
+    @Override
     public String oferecerServicoPremium() {
         return "";
     }

@@ -6,6 +6,11 @@ public class CarroPremium extends Veiculo implements ServicosDeLuxo {
         }
 
     @Override
+    public void informacoesDoVeiculo() {
+
+    }
+
+    @Override
     public String oferecerServicoPremium() {
         return "";
     }
