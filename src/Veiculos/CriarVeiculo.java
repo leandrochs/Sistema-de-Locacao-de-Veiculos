@@ -1,15 +1,19 @@
+package Veiculos;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+
+
+
 public class CriarVeiculo {
 
-    List<Veiculo> veiculos = new ArrayList<>();
+   static List<Veiculo> veiculos = new ArrayList<>();
+   static Scanner sc = new Scanner(System.in);
 
-    Scanner sc = new Scanner(System.in);
-
-    private boolean placaRepetida(String placa){
+    private static boolean placaRepetida(String placa){
         for (Veiculo veiculo : veiculos) {
-            if (veiculo.placa.equals(placa)) {
+            if (veiculo.getPlaca().equals(placa)) {
                 System.out.println("Veículo já cadastrado.");
                 return true;
             }
@@ -17,18 +21,17 @@ public class CriarVeiculo {
         return false;
     }
 
-    public void cadastrarVeiculo() {
+    public static void cadastrarVeiculo() {
 
         int tipoVeiculo;
 
         while(true) {
             System.out.println("Escolha o tipo de veículo que deseja cadastrar: ");
-            System.out.println("Digite 1 para Carro Comum");
-            System.out.println("Digite 2 para Carro Premium");
-            System.out.println("Digite 3 para SUV");
-            System.out.println("Digite 4 para Moto");
-            System.out.println("Digite 5 para Caminhão");
-
+            System.out.println("1) Comum");
+            System.out.println("2) Carro Premium");
+            System.out.println("3) SUV");
+            System.out.println("4) Moto");
+            System.out.println("5) Caminhão");
             tipoVeiculo = sc.nextInt();
             sc.nextLine();
 
@@ -50,28 +53,28 @@ public class CriarVeiculo {
         }
 
 
+
         System.out.println("Digite a tarifa diária de locação do veículo:");
         double valorDiaria = sc.nextDouble();
 
         boolean disponibilidade = true;
-
         Veiculo veiculo = null;
 
         switch (tipoVeiculo) {
             case 1:
-                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Veiculo.CarroComum(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 2:
-                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Veiculo.CarroPremium(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 3:
-                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Veiculo.SUV(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 4:
-                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Veiculo.Moto(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 5:
-                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Veiculo.Caminhao(modelo, placa, valorDiaria, disponibilidade);
                 break;
             default:
                 System.out.println("Tipo de veículo não encontrado.");

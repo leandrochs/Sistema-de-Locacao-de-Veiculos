@@ -1,6 +1,7 @@
 import BancoDeDados.BancoDeDados;
 import Clientes.Cliente;
 import Clientes.CriarCliente;
+import Veiculos.CriarVeiculo;
 
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class CallMenu {
             System.out.println("7) Sair");
             System.out.print("Digite a opção desejada: ");
             option = scanner.nextInt();
-            //Validar para casos de texto não quebrar o código
+
 
             switch (option) {
                 case 1:
@@ -31,6 +32,7 @@ public class CallMenu {
                     break;
                 case 3:
                     System.out.println("Opção 3: Cadastrar veículo");
+                    CriarVeiculo.cadastrarVeiculo();
                     break;
                 case 4:
                     System.out.println("Opção 4: Listar veículos");
