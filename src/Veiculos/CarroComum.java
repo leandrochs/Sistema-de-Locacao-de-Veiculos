@@ -7,7 +7,7 @@ public class CarroComum extends Veiculo {
 
     @Override
     public void informacoesDoVeiculo() {
-
+        System.out.println("Carro comum modelo:" + getModelo() + ", placa: " + getPlaca());
     }
 }
 

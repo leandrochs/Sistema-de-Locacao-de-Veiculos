@@ -7,7 +7,7 @@ public class Moto extends Veiculo {
 
     @Override
     public void informacoesDoVeiculo() {
-
+        System.out.println("Moto, modelo:" + getModelo() + ", placa: " + getPlaca());
     }
 }
 

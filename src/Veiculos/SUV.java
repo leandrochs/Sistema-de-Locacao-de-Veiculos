@@ -7,12 +7,12 @@ public class SUV extends Veiculo implements ServicosDeLuxo{
 
     @Override
     public void informacoesDoVeiculo() {
-
+        System.out.println("SUV, modelo:" + getModelo() + ", placa: " + getPlaca());
     }
 
     @Override
-    public String oferecerServicoPremium() {
-        return "";
+    public void oferecerServicoPremium() {
+        System.out.println("Serviço premium disponivel, para veiculo premium " + getModelo());
     }
 }
 
