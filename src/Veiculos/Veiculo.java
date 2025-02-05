@@ -23,28 +23,10 @@ public abstract class Veiculo {
         }
     }
 
-    static class CarroPremium extends Veiculo {
-        public CarroPremium(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
-    }
 
-    static class SUV extends Veiculo {
-        public SUV(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
-    }
 
-    static class Moto extends Veiculo {
-        public Moto(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
-    }
 
-    static class Caminhao extends Veiculo {
-        public Caminhao(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
-    }
 
-}
+        }
+
+

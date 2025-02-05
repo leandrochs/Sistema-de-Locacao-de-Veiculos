@@ -65,16 +65,16 @@ public class CriarVeiculo {
                 veiculo = new Veiculo.CarroComum(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 2:
-                veiculo = new Veiculo.CarroPremium(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 3:
-                veiculo = new Veiculo.SUV(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 4:
-                veiculo = new Veiculo.Moto(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade);
                 break;
             case 5:
-                veiculo = new Veiculo.Caminhao(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade);
                 break;
             default:
                 System.out.println("Tipo de veículo não encontrado.");
