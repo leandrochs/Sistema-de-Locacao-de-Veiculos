@@ -1,12 +1,12 @@
 package Veiculos;
 
-public abstract class Veiculo {
-    private String modelo;
+public class Veiculo {
+    public String modelo;
     private String placa;
     private double valorDiaria;
-    private boolean disponibilidade;
+    public boolean disponibilidade;
 
-    //construtor
+        //construtor
     public Veiculo(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
         this.modelo = modelo;
         this.placa = placa;
@@ -14,7 +14,12 @@ public abstract class Veiculo {
         this.disponibilidade = true;
     }
 
-    // metodos acessores get e set
+    @Override
+    public String toString() {
+        return "Veiculo [Modelo=" + modelo + ", Placa=" + placa + ", Valor Diária=" + valorDiaria + ", Disponibilidade=" + disponibilidade + "]";
+    }
+
+        // metodos acessores get e set
     public String getModelo() {
         return modelo;
     }
@@ -53,7 +58,7 @@ public abstract class Veiculo {
     }
 
     //metodo que exibe informações de veiculo
-    public abstract void informacoesDoVeiculo();
+//    public abstract void informacoesDoVeiculo();
 
 }
 

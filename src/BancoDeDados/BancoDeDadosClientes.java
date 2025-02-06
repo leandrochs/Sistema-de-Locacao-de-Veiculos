@@ -5,7 +5,7 @@ import Clientes.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BancoDeDados {
+public class BancoDeDadosClientes {
     public static List<Cliente> listaClientes = new ArrayList<>();
 
     public static void adicionaCliente(Cliente cliente) {

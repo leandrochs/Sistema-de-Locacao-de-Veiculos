@@ -5,7 +5,7 @@ public class CarroComum extends Veiculo {
             super(modelo, placa, valorDiaria, disponibilidade);
         }
 
-    @Override
+//    @Override
     public void informacoesDoVeiculo() {
         System.out.println("Carro comum modelo:" + getModelo() + ", placa: " + getPlaca());
     }

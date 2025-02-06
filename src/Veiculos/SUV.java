@@ -5,7 +5,7 @@ public class SUV extends Veiculo implements ServicosDeLuxo{
             super(modelo, placa, valorDiaria, disponibilidade);
         }
 
-    @Override
+//    @Override
     public void informacoesDoVeiculo() {
         System.out.println("SUV, modelo:" + getModelo() + ", placa: " + getPlaca());
     }

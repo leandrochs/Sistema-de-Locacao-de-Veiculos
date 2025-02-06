@@ -5,9 +5,9 @@ public class Moto extends Veiculo {
             super(modelo, placa, valorDiaria, disponibilidade);
         }
 
-    @Override
+//    @Override
     public void informacoesDoVeiculo() {
-        System.out.println("Moto, modelo:" + getModelo() + ", placa: " + getPlaca());
+            System.out.println("Moto, modelo:" + getModelo() + ", placa: " + getPlaca());
     }
 }
 

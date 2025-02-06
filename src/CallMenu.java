@@ -1,5 +1,5 @@
-import BancoDeDados.BancoDeDados;
-import Clientes.Cliente;
+import BancoDeDados.BancoDeDadosClientes;
+import BancoDeDados.BancoDeDadosVeiculos;
 import Clientes.CriarCliente;
 import Veiculos.CriarVeiculo;
 
@@ -36,13 +36,14 @@ public class CallMenu {
                     break;
                 case 4:
                     System.out.println("Opção 4: Listar veículos");
+                    BancoDeDadosVeiculos.imprimirVeiculos();
                     break;
                 case 5:
                     System.out.println("Opção 5: Veículo de luxo (locação)");
                     break;
                 case 6:
                     System.out.println("Listar clientes");
-                    BancoDeDados.imprimirClientes();
+                    BancoDeDadosClientes.imprimirClientes();
                     break;
                 case 7:
                     System.out.println("Sair");
