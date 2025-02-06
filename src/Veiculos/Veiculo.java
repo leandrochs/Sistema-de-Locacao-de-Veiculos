@@ -1,50 +1,67 @@
 package Veiculos;
 
 public abstract class Veiculo {
-    protected String modelo;
-    protected String placa;
-    protected double valorDiaria;
-    protected boolean disponibilidade;
+    private String modelo;
+    private String placa;
+    private double valorDiaria;
+    private boolean disponibilidade;
 
+    //construtor
     public Veiculo(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
         this.modelo = modelo;
         this.placa = placa;
         this.valorDiaria = valorDiaria;
-        this.disponibilidade = disponibilidade;
+        this.disponibilidade = true;
+    }
+
+    // metodos acessores get e set
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getPlaca() {
         return placa;
     }
 
-    static class CarroComum extends Veiculo {
-        public CarroComum(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
-    static class CarroPremium extends Veiculo {
-        public CarroPremium(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
+    public double getValorDiaria() {
+        return valorDiaria;
     }
 
-    static class SUV extends Veiculo {
-        public SUV(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
+    public void setValorDiaria(double valorDiaria) {
+        this.valorDiaria = valorDiaria;
     }
 
-    static class Moto extends Veiculo {
-        public Moto(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
+    public boolean isDisponibilidade() {
+        return disponibilidade;
     }
 
-    static class Caminhao extends Veiculo {
-        public Caminhao(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
-        }
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
+
+    //metodo que calcula valor da diaria
+    public double calcularValorDiaria(int dias) {
+        return valorDiaria * dias;
+    }
+
+    //metodo que exibe informações de veiculo
+    public abstract void informacoesDoVeiculo();
 
 }
+
+
+
+
+
+
+
+
+
