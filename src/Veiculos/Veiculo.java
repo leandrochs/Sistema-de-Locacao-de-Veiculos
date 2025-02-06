@@ -52,7 +52,7 @@ public abstract class Veiculo {
         return valorDiaria * dias;
     }
 
-    //metodo que exibe informações de carro
+    //metodo que exibe informações de veiculo
     public abstract void informacoesDoVeiculo();
 
 }

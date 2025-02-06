@@ -22,6 +22,6 @@ public class BancoDeDados {
         if (listaClientes.isEmpty()) {
             System.out.println("Sem clientes cadastrados!");;
         }
-        System.out.println(listaClientes.getLast());
+        //System.out.println(listaClientes.getLast());
     }
 }
