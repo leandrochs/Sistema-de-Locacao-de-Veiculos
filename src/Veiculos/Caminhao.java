@@ -5,7 +5,7 @@ public class Caminhao extends Veiculo {
             super(modelo, placa, valorDiaria, disponibilidade);
         }
 
-    @Override
+//    @Override
     public void informacoesDoVeiculo() {
         System.out.println("Caminhão, modelo:" + getModelo() + ", placa: " + getPlaca());
     }

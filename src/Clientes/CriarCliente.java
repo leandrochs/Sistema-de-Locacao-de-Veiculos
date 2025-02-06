@@ -1,8 +1,6 @@
 package Clientes;
-import BancoDeDados.BancoDeDados;
+import BancoDeDados.BancoDeDadosClientes;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class CriarCliente {
@@ -22,9 +20,9 @@ public class CriarCliente {
         String idNumber = sc.nextLine();
 
         Cliente novoCliente = new Cliente(name, idNumber, adress, telephoneNumber);
-        BancoDeDados.adicionaCliente(novoCliente);
+        BancoDeDadosClientes.adicionaCliente(novoCliente);
 
         System.out.println("Cliente cadastrado com sucesso: " + name);
-        BancoDeDados.getUltimoCliente();
+        BancoDeDadosClientes.getUltimoCliente();
     }
 }
