@@ -1,8 +1,10 @@
 package LocacaoDeVeiculos.Alugar;
 
 import BancoDeDados.BancoDeDadosClientes;
+import BancoDeDados.BancoDeDadosLocacoes;
 import BancoDeDados.BancoDeDadosVeiculos;
 import Clientes.Cliente;
+import LocacaoDeVeiculos.LocacaoRegistro;
 import Veiculos.Veiculo;
 
 import java.time.LocalDate;
@@ -88,13 +90,16 @@ public class Locacao {
         return resposta.equals("S");
     }
 
-    private static void criarLocacao(
-            Veiculo veiculoEscolhido,
-            Cliente clienteEscolhido,
-            LocalDate dataDevolucao) {
+    private static void criarLocacao(Veiculo veiculoEscolhido, Cliente clienteEscolhido, LocalDate dataDevolucao) {
+        LocalDate dataAtual = LocalDate.now();
+
         atualizarDisponibilidade(veiculoEscolhido);
 
-        //        armazenarLocacao;
+        LocacaoRegistro novaLocacao = new LocacaoRegistro(veiculoEscolhido, clienteEscolhido, dataAtual, dataDevolucao);
+        BancoDeDadosLocacoes.adicionarLocacao(novaLocacao);
+
+        System.out.println("Locação registrada com sucesso!");
+        BancoDeDadosLocacoes.imprimeUltimaLocacao();
     }
 
     private static void atualizarDisponibilidade(Veiculo veiculoEscolhido) {
