@@ -1,18 +1,15 @@
 package Veiculos;
 
-import java.util.ArrayList;
+import BancoDeDados.BancoDeDadosVeiculos;
+
 import java.util.Scanner;
-import java.util.List;
-
-
 
 public class CriarVeiculo {
 
-   static List<Veiculo> veiculos = new ArrayList<>();
    static Scanner sc = new Scanner(System.in);
 
     private static boolean placaRepetida(String placa){
-        for (Veiculo veiculo : veiculos) {
+        for (Veiculo veiculo : BancoDeDadosVeiculos.listaVeiculos) {
             if (veiculo.getPlaca().equals(placa)) {
                 System.out.println("Veículo já cadastrado.");
                 return true;
@@ -80,7 +77,8 @@ public class CriarVeiculo {
                 System.out.println("Tipo de veículo não encontrado.");
                 break;
         }
-        veiculos.add(veiculo);
+        BancoDeDadosVeiculos.adicionarVeiculo(veiculo);
         System.out.println("Veículo cadastrado com sucesso.");
+        BancoDeDadosVeiculos.imprimeUltimoVeiculo();
     }
 }
