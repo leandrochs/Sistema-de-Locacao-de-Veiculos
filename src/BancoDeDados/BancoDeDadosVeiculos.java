@@ -9,7 +9,7 @@ public class BancoDeDadosVeiculos {
     public static void adicionarVeiculo(Veiculo veiculo) {
         listaVeiculos.add(veiculo);
     }
-    public static void imprimirVeiculos () {
+    public static void imprimirTodosVeiculos() {
         for (Veiculo veiculo : listaVeiculos) {
             System.out.println(veiculo.toString());
         }

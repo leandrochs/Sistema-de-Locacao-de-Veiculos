@@ -40,7 +40,7 @@ public class CallMenu {
                     break;
                 case 2:
                     System.out.println("Opção 2: Listar todos veículos");
-                    BancoDeDadosVeiculos.imprimirVeiculos();
+                    BancoDeDadosVeiculos.imprimirTodosVeiculos();
                     break;
                 case 3:
                     System.out.println("Opção 3: Listar veículos disponíveis");
