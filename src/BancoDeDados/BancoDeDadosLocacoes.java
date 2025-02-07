@@ -1,6 +1,7 @@
 package BancoDeDados;
 
-import LocacaoDeVeiculos.LocacaoRegistro;
+import LocacaoDeVeiculos.Alugar.LocacaoRegistro;
+
 import java.util.ArrayList;
 import java.util.List;
 

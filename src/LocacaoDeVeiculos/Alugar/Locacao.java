@@ -4,7 +4,6 @@ import BancoDeDados.BancoDeDadosClientes;
 import BancoDeDados.BancoDeDadosLocacoes;
 import BancoDeDados.BancoDeDadosVeiculos;
 import Clientes.Cliente;
-import LocacaoDeVeiculos.LocacaoRegistro;
 import Veiculos.Veiculo;
 
 import java.time.LocalDate;

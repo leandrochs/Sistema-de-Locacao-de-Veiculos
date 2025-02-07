@@ -1,4 +1,4 @@
-package LocacaoDeVeiculos;
+package LocacaoDeVeiculos.Alugar;
 
 import Clientes.Cliente;
 import Veiculos.Veiculo;
