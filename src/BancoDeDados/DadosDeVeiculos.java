@@ -6,9 +6,13 @@ import Veiculos.Veiculo;
 
 public class DadosDeVeiculos {
     public static void gerarVeiculosDeExemplo() {
-        for (int i = 0; i < 3; i++) {
-            Veiculo Veiculos = new Veiculo("Modelo"+i, "placa"+i, 159.5,true);
-            BancoDeDadosVeiculos.adicionarVeiculo(Veiculos);
+        for (int i = 0; i < 7; i++) {
+
+            boolean ehDisponivel = (i % 2 == 0);
+
+            Veiculo veiculo = new Veiculo("Modelo"+i, "placa"+i, 159.5+i, ehDisponivel);
+
+            BancoDeDadosVeiculos.adicionarVeiculo(veiculo);
         }
     }
 }

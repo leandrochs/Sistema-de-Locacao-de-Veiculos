@@ -18,10 +18,10 @@ public class BancoDeDadosClientes {
         }
     }
 
-    public static void getUltimoCliente() {
+    public static void imprimeUltimoCliente() {
         if (listaClientes.isEmpty()) {
             System.out.println("Sem clientes cadastrados!");;
         }
-        //System.out.println(listaClientes.getLast());
+        System.out.println(listaClientes.get(listaClientes.size() - 1));
     }
 }

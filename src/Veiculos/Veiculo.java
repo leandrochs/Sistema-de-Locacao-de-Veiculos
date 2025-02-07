@@ -11,7 +11,7 @@ public class Veiculo {
         this.modelo = modelo;
         this.placa = placa;
         this.valorDiaria = valorDiaria;
-        this.disponibilidade = true;
+        this.disponibilidade = disponibilidade;
     }
 
     @Override
