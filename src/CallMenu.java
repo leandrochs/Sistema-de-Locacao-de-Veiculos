@@ -44,6 +44,7 @@ public class CallMenu {
                     break;
                 case 3:
                     System.out.println("Opção 3: Listar veículos disponíveis");
+                    BancoDeDadosVeiculos.imprimirVeiculosDisponiveis();
                     break;
                 case 4:
                     System.out.println("Opção 4: Listar veículos alugados");
