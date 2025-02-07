@@ -26,7 +26,7 @@ public class BancoDeDadosVeiculos {
 
     public static void imprimeUltimoVeiculo() {
         if (listaVeiculos.isEmpty()) {
-            System.out.println("Sem veículos cadastrados!");;
+            System.out.println("Sem veículos cadastrados!");
         }
         System.out.println(listaVeiculos.get(listaVeiculos.size() - 1));
     }
