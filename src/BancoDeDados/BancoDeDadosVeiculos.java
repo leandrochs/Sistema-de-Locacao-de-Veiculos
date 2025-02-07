@@ -9,9 +9,18 @@ public class BancoDeDadosVeiculos {
     public static void adicionarVeiculo(Veiculo veiculo) {
         listaVeiculos.add(veiculo);
     }
+
     public static void imprimirTodosVeiculos() {
         for (Veiculo veiculo : listaVeiculos) {
             System.out.println(veiculo.toString());
+        }
+    }
+
+    public static void imprimirVeiculosDisponiveis() {
+        for (Veiculo veiculo : listaVeiculos) {
+            if (veiculo.disponibilidade == true) {
+                System.out.println(veiculo);
+            }
         }
     }
 
