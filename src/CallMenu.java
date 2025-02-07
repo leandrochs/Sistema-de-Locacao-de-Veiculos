@@ -1,6 +1,7 @@
 import BancoDeDados.BancoDeDadosClientes;
 import BancoDeDados.BancoDeDadosVeiculos;
 import Clientes.CriarCliente;
+import LocacaoDeVeiculos.Alugar.Locacao;
 import Veiculos.CriarVeiculo;
 
 import java.util.Scanner;
@@ -62,6 +63,7 @@ public class CallMenu {
                     break;
                 case 8:
                     System.out.println("Opção 8: Alugar veículo");
+                    Locacao.iniciarLocacao(scanner);
                     break;
                 case 9:
                     System.out.println("Opção 9: Devolver veículo");
