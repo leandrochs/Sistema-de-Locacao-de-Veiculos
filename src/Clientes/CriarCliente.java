@@ -23,6 +23,6 @@ public class CriarCliente {
         BancoDeDadosClientes.adicionaCliente(novoCliente);
 
         System.out.println("Cliente cadastrado com sucesso: " + name);
-        BancoDeDadosClientes.getUltimoCliente();
+        BancoDeDadosClientes.imprimeUltimoCliente();
     }
 }
