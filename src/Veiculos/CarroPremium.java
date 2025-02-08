@@ -10,7 +10,7 @@ public class CarroPremium extends Veiculo implements ServicosDeLuxo {
         System.out.println("Carro Premium, modelo:" + getModelo() + ", placa: " + getPlaca());
     }
 
-//    @Override
+  @Override
     public void oferecerServicoPremium() {
         System.out.println("Serviço premium disponivel, para veiculo premium " + getModelo());
     }
