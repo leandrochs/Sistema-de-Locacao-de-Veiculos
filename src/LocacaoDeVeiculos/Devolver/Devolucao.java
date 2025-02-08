@@ -1,29 +1,10 @@
 package LocacaoDeVeiculos.Devolver;
-import BancoDeDados.BancoDeDadosVeiculos;
 import LocacaoDeVeiculos.Alugar.LocacaoRegistro;
 import Veiculos.Veiculo;
-
-import java.util.ArrayList;
 import java.util.Scanner;
-
 import static BancoDeDados.BancoDeDadosLocacoes.listaLocacoes;
 import static BancoDeDados.BancoDeDadosVeiculos.listaVeiculos;
 
-//
-//import java.util.Scanner;
-//
-//public class Devolucao {
-//    Scanner scanner = new Scanner(System.in);
-//
-//    DEVOLUÇÃO::
-//    listarVeiculosAlugados;
-//    escolherDevolução;
-//    confirmarDevolucao;
-//    finalizarLocacao;
-//        atualizarDisponibilidadeVeiculo;
-//        removerLocacao;
-//
-//}
 
 public class Devolucao {
     private String placa;
@@ -31,13 +12,13 @@ public class Devolucao {
     private static Scanner sc = new Scanner(System.in);
 
     private static String lerPlaca(){
-        System.out.println(listaLocacoes.toString());
+        System.out.println(listaLocacoes);
         System.out.println("Digite a placa do veículo que deseja devolver: ");
         String placa = sc.nextLine();
         return placa;
     }
 
-    private static void checarExistencia(String placa) {
+    private static boolean checarExistencia(String placa) {
         boolean veiculoExiste = false;
         for(Veiculo veiculo : listaVeiculos){
             if(veiculo.getPlaca().equals(placa)){
@@ -47,10 +28,12 @@ public class Devolucao {
         }
         if(!veiculoExiste){
             System.out.println("Veículo não encontrado no Banco de Dados");
+            return false;
         }
+        return true;
     }
 
-    private static void checarListaLocacoes(String placa){
+    private static boolean checarListaLocacoes(String placa){
         boolean veiculoLocado = false;
         for(LocacaoRegistro locacao : listaLocacoes){
             if(locacao.getVeiculo().getPlaca().equals(placa)){
@@ -60,16 +43,19 @@ public class Devolucao {
         }
         if(!veiculoLocado){
             System.out.println("Veículo não está locado");
+            return false;
         }
+        return true;
     }
 
-    private static void confirmarDevolucao(String placa) {
+    private static boolean confirmarDevolucao(String placa) {
         System.out.printf("Confirma a devolução do veículo: %s? (S/N)\n", placa);
         String respostaDevolucao = sc.nextLine().trim().toUpperCase();
         if (!respostaDevolucao.equals("S")) {
             System.out.println("Devolução cancelada");
-            return;
+            return false;
         }
+        return true;
     }
 
     private static void atualizarDisponibilidadeVeiculo(String placa) {
@@ -91,9 +77,19 @@ public class Devolucao {
 
     public static void devolverLocacao() {
         String placa = lerPlaca();
-        checarExistencia(placa);
-        checarListaLocacoes(placa);
-        confirmarDevolucao(placa);
+
+        if (!checarExistencia(placa)){
+            return;
+        }
+
+        if(!checarListaLocacoes(placa)){
+            return;
+        }
+
+        if (!confirmarDevolucao(placa)) {
+            return;
+        }
+
         atualizarDisponibilidadeVeiculo(placa);
         removerLocacao(placa);
         System.out.println("Veículo devolvido com sucesso!");
