@@ -7,7 +7,6 @@ import static BancoDeDados.BancoDeDadosVeiculos.listaVeiculos;
 
 
 public class Devolucao {
-    private String placa;
 
     private static Scanner sc = new Scanner(System.in);
 
