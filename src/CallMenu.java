@@ -70,7 +70,7 @@ public class CallMenu {
                     break;
                 case 9:
                     System.out.println("Opção 9: Devolver veículo");
-//                    Devolucao.checarExistencia(scanner);
+                    Devolucao.devolverLocacao();
                     break;
                 case 0:
                     System.out.println("Saindo do sistema...");
