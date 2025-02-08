@@ -20,7 +20,7 @@ public class BancoDeDadosClientes {
 
     public static void imprimeUltimoCliente() {
         if (listaClientes.isEmpty()) {
-            System.out.println("Sem clientes cadastrados!");;
+            System.out.println("Sem clientes cadastrados!");
         }
         System.out.println(listaClientes.get(listaClientes.size() - 1));
     }

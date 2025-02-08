@@ -24,7 +24,7 @@ public class CriarVeiculo {
 
         while(true) {
             System.out.println("Escolha o tipo de veículo que deseja cadastrar: ");
-            System.out.println("1) Comum");
+            System.out.println("1) Carro Comum");
             System.out.println("2) Carro Premium");
             System.out.println("3) SUV");
             System.out.println("4) Moto");
@@ -59,19 +59,19 @@ public class CriarVeiculo {
 
         switch (tipoVeiculo) {
             case 1:
-                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
+                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade, false);
                 break;
             case 2:
-                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade,veiculo.isVeiculoDeLuxo);
+                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade,true);
                 break;
             case 3:
-                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
+                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade, true);
                 break;
             case 4:
-                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
+                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade, false);
                 break;
             case 5:
-                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
+                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade, false);
                 break;
             default:
                 System.out.println("Tipo de veículo não encontrado.");
