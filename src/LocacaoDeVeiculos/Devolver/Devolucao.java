@@ -8,13 +8,11 @@ import static BancoDeDados.BancoDeDadosVeiculos.listaVeiculos;
 
 public class Devolucao {
 
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     private static String lerPlaca(){
-        System.out.println(listaLocacoes);
         System.out.println("Digite a placa do veículo que deseja devolver: ");
-        String placa = sc.nextLine();
-        return placa;
+        return sc.nextLine();
     }
 
     private static boolean checarExistencia(String placa) {
@@ -66,12 +64,7 @@ public class Devolucao {
     }
 
     public static void removerLocacao(String placa) {
-        for(int i = 0; i < listaLocacoes.size(); i++){
-            LocacaoRegistro locacao = listaLocacoes.get(i);
-            if(locacao.getVeiculo().getPlaca().equals(placa)){
-                listaLocacoes.remove(i);
-            }
-        }
+        listaLocacoes.removeIf(locacao -> locacao.getVeiculo().getPlaca().equals(placa));
     }
 
     public static void devolverLocacao() {
