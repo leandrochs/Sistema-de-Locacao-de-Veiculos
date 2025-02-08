@@ -1,8 +1,8 @@
 package Veiculos;
 
 public class CarroPremium extends Veiculo implements ServicosDeLuxo {
-        public CarroPremium(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
+        public CarroPremium(String modelo, String placa, double valorDiaria, boolean disponibilidade, boolean isVeiculoDeLuxo) {
+            super(modelo, placa, valorDiaria, disponibilidade, isVeiculoDeLuxo);
         }
 
 //    @Override

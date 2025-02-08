@@ -5,18 +5,20 @@ public class Veiculo {
     private String placa;
     private double valorDiaria;
     public boolean disponibilidade;
+    boolean isVeiculoDeLuxo;
 
         //construtor
-    public Veiculo(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
+    public Veiculo(String modelo, String placa, double valorDiaria, boolean disponibilidade, boolean isVeiculoDeLuxo) {
         this.modelo = modelo;
         this.placa = placa;
         this.valorDiaria = valorDiaria;
         this.disponibilidade = disponibilidade;
+        this.isVeiculoDeLuxo = isVeiculoDeLuxo;
     }
 
     @Override
     public String toString() {
-        return "Veiculo [Modelo=" + modelo + ", Placa=" + placa + ", Valor Diária=" + valorDiaria + ", Disponibilidade=" + disponibilidade + "]";
+        return "Veiculo [Modelo=" + modelo + ", Placa=" + placa + ", Valor Diária=" + valorDiaria + ", Disponibilidade=" + disponibilidade + "]" + ", Veiculo de luxo =" + isVeiculoDeLuxo;
     }
 
         // metodos acessores get e set
@@ -50,6 +52,18 @@ public class Veiculo {
 
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
+    }
+
+    public boolean isVeiculoDeLuxo() {
+        return isVeiculoDeLuxo;
+    }
+
+    public void setVeiculoDeLuxo(boolean veiculoDeLuxo) {
+        if (modelo.equals("CarroComum") || modelo.equals("SUV")) {
+            isVeiculoDeLuxo = true;
+        } else {
+            isVeiculoDeLuxo = false;
+        }
     }
 
     //metodo que calcula valor da diaria

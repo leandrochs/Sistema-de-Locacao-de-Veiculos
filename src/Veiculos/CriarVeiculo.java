@@ -59,19 +59,19 @@ public class CriarVeiculo {
 
         switch (tipoVeiculo) {
             case 1:
-                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new CarroComum(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
                 break;
             case 2:
-                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new CarroPremium(modelo, placa, valorDiaria, disponibilidade,veiculo.isVeiculoDeLuxo);
                 break;
             case 3:
-                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new SUV(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
                 break;
             case 4:
-                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Moto(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
                 break;
             case 5:
-                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade);
+                veiculo = new Caminhao(modelo, placa, valorDiaria, disponibilidade, veiculo.isVeiculoDeLuxo);
                 break;
             default:
                 System.out.println("Tipo de veículo não encontrado.");

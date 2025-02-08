@@ -1,8 +1,8 @@
 package Veiculos;
 
 public class Caminhao extends Veiculo {
-        public Caminhao(String modelo, String placa, double valorDiaria, boolean disponibilidade) {
-            super(modelo, placa, valorDiaria, disponibilidade);
+        public Caminhao(String modelo, String placa, double valorDiaria, boolean disponibilidade, boolean isVeiculoDeLuxo) {
+            super(modelo, placa, valorDiaria, disponibilidade, isVeiculoDeLuxo);
         }
 
 //    @Override
