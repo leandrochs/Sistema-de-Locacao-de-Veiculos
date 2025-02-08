@@ -15,6 +15,10 @@ public class Locacao {
 
         apresentarVeiculosDisponiveis();
         Veiculo veiculoEscolhido = escolherVeiculo(scanner);
+        if (veiculoEscolhido == null) {
+            System.out.println("Veiculo não encontrado, Operação cancelada");
+            return;
+        }
         apresentarClientes();
         Cliente clienteEscolhido = escolherCliente(scanner);
         LocalDate dataDevolucao = escolherDataDevolucao(scanner);
