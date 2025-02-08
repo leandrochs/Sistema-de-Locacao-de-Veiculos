@@ -30,5 +30,21 @@ public class BancoDeDadosVeiculos {
         }
         System.out.println(listaVeiculos.get(listaVeiculos.size() - 1));
     }
+
+    public static void imprimirVeiculosAlugados() {
+        for (Veiculo veiculo : listaVeiculos) {
+            if (veiculo.disponibilidade == false) {
+                System.out.println(veiculo);
+            }
+        }
+    }
+
+    public static void imprimirVeiculosDeLuxo() {
+        for (Veiculo veiculo : listaVeiculos) {
+            if (veiculo.isVeiculoDeLuxo() == true) {
+                System.out.println(veiculo);
+            }
+        }
+    }
 }
 

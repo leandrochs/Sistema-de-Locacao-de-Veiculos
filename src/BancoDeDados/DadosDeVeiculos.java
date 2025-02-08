@@ -10,7 +10,7 @@ public class DadosDeVeiculos {
 
             boolean ehDisponivel = (i % 2 == 0);
 
-            Veiculo veiculo = new Veiculo("Modelo"+i, "placa"+i, 159.5+i, ehDisponivel);
+            Veiculo veiculo = new Veiculo("Modelo"+i, "placa"+i, 159.5+i, ehDisponivel, true);
 
             BancoDeDadosVeiculos.adicionarVeiculo(veiculo);
         }
