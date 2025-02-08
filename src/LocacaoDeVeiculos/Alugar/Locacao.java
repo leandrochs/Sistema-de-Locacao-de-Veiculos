@@ -22,6 +22,10 @@ public class Locacao {
         apresentarClientes();
         Cliente clienteEscolhido = escolherCliente(scanner);
         LocalDate dataDevolucao = escolherDataDevolucao(scanner);
+        if (dataDevolucao == null) {
+            System.out.println("Data de devolução invalidada. Operação cancelada");
+            return;
+        }
         if (!confirmarLocacao(scanner, veiculoEscolhido, clienteEscolhido, dataDevolucao)) {
             System.out.println("Locação cancelada.");
             return;
@@ -73,6 +77,7 @@ public class Locacao {
     private static LocalDate escolherDataDevolucao(Scanner scanner) {
         System.out.println("Digite a data de devolução (dd/MM/yyyy):");
         String dataDigitada = scanner.next();
+
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDevolucao = LocalDate.parse(dataDigitada, formatter);
