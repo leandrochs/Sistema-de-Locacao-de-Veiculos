@@ -8,6 +8,7 @@ import Veiculos.Veiculo;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Locacao {
@@ -26,13 +27,28 @@ public class Locacao {
             System.out.println("Data de devolução invalidada. Operação cancelada");
             return;
         }
-        if (!confirmarLocacao(scanner, veiculoEscolhido, clienteEscolhido, dataDevolucao)) {
+
+        double valorLocacao = calcularValorLocacao(veiculoEscolhido, dataDevolucao);
+        System.out.println("O valor total da locação é: " + valorLocacao);
+
+        if (!confirmarLocacao(scanner, veiculoEscolhido, clienteEscolhido, dataDevolucao, valorLocacao)) {
             System.out.println("Locação cancelada.");
             return;
         }
-        criarLocacao(veiculoEscolhido, clienteEscolhido, dataDevolucao);
+        criarLocacao(veiculoEscolhido, clienteEscolhido, dataDevolucao, valorLocacao);
     }
 
+    private static double calcularValorLocacao(Veiculo veiculoEscolhido, LocalDate dataDevolucao) {
+        LocalDate dataAtual = LocalDate.now();
+
+        long diasLocacao = ChronoUnit.DAYS.between(dataAtual, dataDevolucao);
+
+        if (diasLocacao == 0) {
+            return veiculoEscolhido.getValorDiaria();
+        }
+
+        return veiculoEscolhido.getValorDiaria() * (diasLocacao + 1);
+    }
 
     private static void apresentarVeiculosDisponiveis() {
         BancoDeDadosVeiculos.imprimirVeiculosDisponiveis();
@@ -86,11 +102,12 @@ public class Locacao {
         return dataDevolucao;
     }
 
-    private static boolean confirmarLocacao(Scanner scanner, Veiculo veiculo, Cliente cliente, LocalDate dataDevolucao) {
+    private static boolean confirmarLocacao(Scanner scanner, Veiculo veiculo, Cliente cliente, LocalDate dataDevolucao, double valorLocacao) {
         System.out.println("===== Confirmação da Locação =====");
         System.out.println("Veículo: " + veiculo);
         System.out.println("Cliente: " + cliente);
         System.out.println("Data de devolução: " + dataDevolucao);
+        System.out.println("Valor total da locação:" + valorLocacao);
         System.out.println("Confirmar locação? (S/N)");
 
         String resposta = scanner.next().trim().toUpperCase();
@@ -98,12 +115,12 @@ public class Locacao {
         return resposta.equals("S");
     }
 
-    private static void criarLocacao(Veiculo veiculoEscolhido, Cliente clienteEscolhido, LocalDate dataDevolucao) {
+    private static void criarLocacao(Veiculo veiculoEscolhido, Cliente clienteEscolhido, LocalDate dataDevolucao, double valorLocacao) {
         LocalDate dataAtual = LocalDate.now();
 
         atualizarDisponibilidade(veiculoEscolhido);
 
-        LocacaoRegistro novaLocacao = new LocacaoRegistro(veiculoEscolhido, clienteEscolhido, dataAtual, dataDevolucao);
+        LocacaoRegistro novaLocacao = new LocacaoRegistro(veiculoEscolhido, clienteEscolhido, dataAtual, dataDevolucao, valorLocacao);
         BancoDeDadosLocacoes.adicionarLocacao(novaLocacao);
 
         System.out.println("Locação registrada com sucesso!");
