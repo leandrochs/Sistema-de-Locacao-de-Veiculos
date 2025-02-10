@@ -19,8 +19,8 @@ public class Devolucao {
         boolean veiculoExiste = false;
         for(Veiculo veiculo : listaVeiculos){
             if(veiculo.getPlaca().equals(placa)){
-            veiculoExiste = true;
-            break;
+                veiculoExiste = true;
+                break;
             }
         }
         if(!veiculoExiste){
@@ -30,20 +30,19 @@ public class Devolucao {
         return true;
     }
 
-    private static boolean checarDisponibilidade(String placa){
+    private static boolean checarListaLocacoes(String placa){
         boolean veiculoLocado = false;
-        for(Veiculo veiculo : listaVeiculos){
-            if(veiculo.getPlaca().equals(placa)){
-                if(veiculo.isDisponibilidade()){
-                    System.out.println("Veículo não está locado");
-                    return false;
-                }
-                else{
-                    return true;
-                }
+        for(LocacaoRegistro locacao : listaLocacoes){
+            if(locacao.getVeiculo().getPlaca().equals(placa)){
+                veiculoLocado = true;
+                break;
             }
         }
-        return false;
+        if(!veiculoLocado){
+            System.out.println("Veículo não está locado");
+            return false;
+        }
+        return true;
     }
 
     private static boolean confirmarDevolucao(String placa) {
@@ -64,25 +63,19 @@ public class Devolucao {
         }
     }
 
-    public static void removerLocacaoLista(String placa) {
+    public static void removerLocacao(String placa) {
         listaLocacoes.removeIf(locacao -> locacao.getVeiculo().getPlaca().equals(placa));
     }
 
     public static void devolverLocacao() {
-        String placa;
+        String placa = lerPlaca();
 
-        while(true) {
-            placa = lerPlaca();
+        if (!checarExistencia(placa)){
+            return;
+        }
 
-
-            if (!checarExistencia(placa)) {
-                continue;
-            }
-
-            if (!checarDisponibilidade(placa)) {
-                continue;
-            }
-            break;
+        if(!checarListaLocacoes(placa)){
+            return;
         }
 
         if (!confirmarDevolucao(placa)) {
@@ -90,7 +83,7 @@ public class Devolucao {
         }
 
         atualizarDisponibilidadeVeiculo(placa);
-        removerLocacaoLista(placa);
+        removerLocacao(placa);
         System.out.println("Veículo devolvido com sucesso!");
     }
 

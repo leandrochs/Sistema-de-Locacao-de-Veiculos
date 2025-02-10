@@ -1,6 +1,7 @@
 package Clientes;
 
 import java.util.Scanner;
+import Utils.MensagensErro;
 
 public class Cliente {
     private final int CPF_SIZE = 11;
@@ -34,22 +35,27 @@ public class Cliente {
 
 
 public void setIdNumber(String idNumber) {
-    boolean valid;
+    boolean valid = false;
     Scanner scanner = new Scanner(System.in);
     do {
-        int intLength = idNumber.length();
-        if (intLength == CNPJ_SIZE) {
-            this.tipoDeCliente = "PJ";
-            this.idNumber = idNumber;
-            valid = true;
-        } else if (intLength == CPF_SIZE) {
-            this.tipoDeCliente = "PF";
-            this.idNumber = idNumber;
-            valid = true;
-        } else {
-            System.out.println("IdNumber invalido. Por favor, insira novamente:");
+        try {
+            int intLength = idNumber.length();
+            if (intLength == CNPJ_SIZE) {
+                this.tipoDeCliente = "PJ";
+                this.idNumber = idNumber;
+                valid = true;
+            } else if (intLength == CPF_SIZE) {
+                this.tipoDeCliente = "PF";
+                this.idNumber = idNumber;
+                valid = true;
+            } else {
+                System.out.println(MensagensErro.CLIENTE_NAO_ENCONTRADO.getMensagem());
+                idNumber = scanner.nextLine();
+                valid = false;
+            }  } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            System.out.print(MensagensErro.ID_NUMBER_INVALIDO.getMensagem());
             idNumber = scanner.nextLine();
-            valid = false;
         }
     } while (!valid);
 }
