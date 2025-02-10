@@ -2,6 +2,7 @@ package BancoDeDados;
 import Veiculos.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BancoDeDadosVeiculos {
     public static List<Veiculo> listaVeiculos = new ArrayList<>();
@@ -18,7 +19,7 @@ public class BancoDeDadosVeiculos {
 
     public static void imprimirVeiculosDisponiveis() {
         for (Veiculo veiculo : listaVeiculos) {
-            if (veiculo.disponibilidade == true) {
+            if (veiculo.disponibilidade) {
                 System.out.println(veiculo);
             }
         }
@@ -33,7 +34,7 @@ public class BancoDeDadosVeiculos {
 
     public static void imprimirVeiculosAlugados() {
         for (Veiculo veiculo : listaVeiculos) {
-            if (veiculo.disponibilidade == false) {
+            if (!veiculo.disponibilidade) {
                 System.out.println(veiculo);
             }
         }
@@ -41,7 +42,7 @@ public class BancoDeDadosVeiculos {
 
     public static void imprimirVeiculosDeLuxo() {
         for (Veiculo veiculo : listaVeiculos) {
-            if (veiculo.isVeiculoDeLuxo() == true) {
+            if (veiculo.isVeiculoDeLuxo()) {
                 System.out.println(veiculo);
             }
         }
