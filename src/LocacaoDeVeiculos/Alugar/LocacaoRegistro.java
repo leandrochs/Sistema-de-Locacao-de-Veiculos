@@ -9,12 +9,14 @@ public class LocacaoRegistro {
     private Cliente cliente;
     private LocalDate dataLocacao;
     private LocalDate dataDevolucao;
+    private double valorLocacao;
 
-    public LocacaoRegistro(Veiculo veiculo, Cliente cliente, LocalDate dataLocacao, LocalDate dataDevolucao) {
+    public LocacaoRegistro(Veiculo veiculo, Cliente cliente, LocalDate dataLocacao, LocalDate dataDevolucao, double valorLocacao) {
         this.veiculo = veiculo;
         this.cliente = cliente;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
+        this.valorLocacao = valorLocacao;
     }
 
     public Veiculo getVeiculo() {
@@ -28,6 +30,7 @@ public class LocacaoRegistro {
                 "Veículo: " + veiculo + "\n" +
                 "Cliente: " + cliente + "\n" +
                 "Data de Locação: " + dataLocacao + "\n" +
-                "Data de Devolução: " + dataDevolucao + "\n";
+                "Data de Devolução: " + dataDevolucao + "\n" +
+                "Valor Total da Locação: " + valorLocacao + "\n";
     }
 }
