@@ -98,6 +98,11 @@ public class Locacao {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDevolucao = LocalDate.parse(dataDigitada, formatter);
 
+        LocalDate dataAtual = LocalDate.now();
+        if(dataDevolucao.isBefore(dataAtual)) {
+            return null;
+        }
+
         System.out.println("Data de devolução escolhida: " + dataDevolucao.format(formatter));
         return dataDevolucao;
     }
