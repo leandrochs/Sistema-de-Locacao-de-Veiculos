@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class BancoDeDadosVeiculos {
     public static List<Veiculo> listaVeiculos = new ArrayList<>();
-    private static final Scanner sc = new Scanner(System.in);
 
     public static void adicionarVeiculo(Veiculo veiculo) {
         listaVeiculos.add(veiculo);
