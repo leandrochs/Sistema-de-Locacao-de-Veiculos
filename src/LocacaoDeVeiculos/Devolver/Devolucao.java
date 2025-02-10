@@ -30,19 +30,20 @@ public class Devolucao {
         return true;
     }
 
-    private static boolean checarListaLocacoes(String placa){
+    private static boolean checarDisponibilidade(String placa){
         boolean veiculoLocado = false;
-        for(LocacaoRegistro locacao : listaLocacoes){
-            if(locacao.getVeiculo().getPlaca().equals(placa)){
-                veiculoLocado = true;
-                break;
+        for(Veiculo veiculo : listaVeiculos){
+            if(veiculo.getPlaca().equals(placa)){
+                if(veiculo.isDisponibilidade()){
+                    System.out.println("Veículo não está locado");
+                    return false;
+                }
+                else{
+                    return true;
+                }
             }
         }
-        if(!veiculoLocado){
-            System.out.println("Veículo não está locado");
-            return false;
-        }
-        return true;
+        return false;
     }
 
     private static boolean confirmarDevolucao(String placa) {
@@ -63,19 +64,25 @@ public class Devolucao {
         }
     }
 
-    public static void removerLocacao(String placa) {
+    public static void removerLocacaoLista(String placa) {
         listaLocacoes.removeIf(locacao -> locacao.getVeiculo().getPlaca().equals(placa));
     }
 
     public static void devolverLocacao() {
-        String placa = lerPlaca();
+        String placa;
 
-        if (!checarExistencia(placa)){
-            return;
-        }
+        while(true) {
+            placa = lerPlaca();
 
-        if(!checarListaLocacoes(placa)){
-            return;
+
+            if (!checarExistencia(placa)) {
+                continue;
+            }
+
+            if (!checarDisponibilidade(placa)) {
+                continue;
+            }
+            break;
         }
 
         if (!confirmarDevolucao(placa)) {
@@ -83,7 +90,7 @@ public class Devolucao {
         }
 
         atualizarDisponibilidadeVeiculo(placa);
-        removerLocacao(placa);
+        removerLocacaoLista(placa);
         System.out.println("Veículo devolvido com sucesso!");
     }
 
