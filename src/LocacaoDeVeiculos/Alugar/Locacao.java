@@ -55,15 +55,22 @@ public class Locacao {
     }
 
     private static Veiculo escolherVeiculo(Scanner scanner) {
-        System.out.println("Digite a placa do veículo para locação:");
-
-        String placaDigitada = scanner.next();
         Veiculo veiculoEscolhido = null;
 
-        for (Veiculo veiculoDaLista : BancoDeDadosVeiculos.listaVeiculos) {
-            if (veiculoDaLista.getPlaca().equals(placaDigitada)) {
-                veiculoEscolhido = veiculoDaLista;
-                break;
+        while (veiculoEscolhido == null) {
+            System.out.println("Digite a placa do veículo para locação:");
+            String placaDigitada = scanner.next();
+
+            for (Veiculo veiculoDaLista : BancoDeDadosVeiculos.listaVeiculos) {
+                if (veiculoDaLista.getPlaca().equals(placaDigitada)) {
+                    if (!veiculoDaLista.disponibilidade) {
+                        System.out.println("Veículo não está disponível para locação: " + placaDigitada + ".");
+                        break;
+                    } else {
+                        veiculoEscolhido = veiculoDaLista;
+                        break;
+                    }
+                }
             }
         }
         System.out.println(veiculoEscolhido + "\n");
