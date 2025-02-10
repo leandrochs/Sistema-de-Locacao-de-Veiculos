@@ -17,6 +17,11 @@ public class LocacaoRegistro {
         this.dataDevolucao = dataDevolucao;
     }
 
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+
     @Override
     public String toString() {
         return "Locação:\n" +

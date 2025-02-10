@@ -1,51 +1,90 @@
 package LocacaoDeVeiculos.Devolver;
-import BancoDeDados.BancoDeDadosVeiculos;
-import java.util.ArrayList;
+import LocacaoDeVeiculos.Alugar.LocacaoRegistro;
+import Veiculos.Veiculo;
 import java.util.Scanner;
+import static BancoDeDados.BancoDeDadosLocacoes.listaLocacoes;
+import static BancoDeDados.BancoDeDadosVeiculos.listaVeiculos;
 
-//
-//import java.util.Scanner;
-//
-//public class Devolucao {
-//    Scanner scanner = new Scanner(System.in);
-//
-//    DEVOLUÇÃO::
-//    listarVeiculosAlugados;
-//    escolherDevolução;
-//    confirmarDevolucao;
-//    finalizarLocacao;
-//        atualizarDisponibilidadeVeiculo;
-//        removerLocacao;
-//
-//}
 
 public class Devolucao {
-    private static ArrayList<String> listaVeiculos = new ArrayList<>();
 
-    public static void checarExistencia(Scanner locacao) {
-        System.out.println(listaVeiculos.toString());
-        System.out.println("Digite a placa do veículo: ");
-        Scanner sc = new Scanner(System.in);
-        String placa = sc.nextLine();
+    private static final Scanner sc = new Scanner(System.in);
 
-        if (!listaVeiculos.contains(placa)) {
-            System.out.println("O veículo não existe no banco de dados.");
-            return;
-        }
+    private static String lerPlaca(){
+        System.out.println("Digite a placa do veículo que deseja devolver: ");
+        return sc.nextLine();
     }
 
-    public static void confirmarDevolucao(String placa) {
+    private static boolean checarExistencia(String placa) {
+        boolean veiculoExiste = false;
+        for(Veiculo veiculo : listaVeiculos){
+            if(veiculo.getPlaca().equals(placa)){
+            veiculoExiste = true;
+            break;
+            }
+        }
+        if(!veiculoExiste){
+            System.out.println("Veículo não encontrado no Banco de Dados");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean checarListaLocacoes(String placa){
+        boolean veiculoLocado = false;
+        for(LocacaoRegistro locacao : listaLocacoes){
+            if(locacao.getVeiculo().getPlaca().equals(placa)){
+                veiculoLocado = true;
+                break;
+            }
+        }
+        if(!veiculoLocado){
+            System.out.println("Veículo não está locado");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean confirmarDevolucao(String placa) {
         System.out.printf("Confirma a devolução do veículo: %s? (S/N)\n", placa);
-        Scanner sc = new Scanner(System.in);
         String respostaDevolucao = sc.nextLine().trim().toUpperCase();
         if (!respostaDevolucao.equals("S")) {
             System.out.println("Devolução cancelada");
-            return;
+            return false;
+        }
+        return true;
+    }
+
+    private static void atualizarDisponibilidadeVeiculo(String placa) {
+        for(Veiculo veiculo : listaVeiculos){
+            if(veiculo.getPlaca().equals(placa)){
+                veiculo.setDisponibilidade(true);
+            }
         }
     }
 
-//    public void atualizarDisponibilidadeVeiculo(String placa) {
-//
-//    }
+    public static void removerLocacao(String placa) {
+        listaLocacoes.removeIf(locacao -> locacao.getVeiculo().getPlaca().equals(placa));
+    }
+
+    public static void devolverLocacao() {
+        String placa = lerPlaca();
+
+        if (!checarExistencia(placa)){
+            return;
+        }
+
+        if(!checarListaLocacoes(placa)){
+            return;
+        }
+
+        if (!confirmarDevolucao(placa)) {
+            return;
+        }
+
+        atualizarDisponibilidadeVeiculo(placa);
+        removerLocacao(placa);
+        System.out.println("Veículo devolvido com sucesso!");
+    }
 
 }
